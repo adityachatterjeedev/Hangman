@@ -1,5 +1,5 @@
 """
-Helper module for the hangman game. Contains all the functions needed ot run the game smoothly.
+Helper module for the hangman game. Contains all the functions needed to run the game smoothly.
 """
 import random
 from string import ascii_lowercase as lowercase
