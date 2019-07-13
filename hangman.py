@@ -77,8 +77,9 @@ def readable_letters(list_of_letters):
     A function to handle converting the list of remaining letters to a more readable form.
     """
     string = ''
-    for letter in list_of_letters:
-        string += (letter + ',')
+    for i in range(len(list_of_letters) - 1):
+        string += (list_of_letters[i] + ',')
+    string += list_of_letters[len(list_of_letters) - 1]
     return string
 
 def play_game(word_length, letter_list, num_chances):
