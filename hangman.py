@@ -32,7 +32,7 @@ def get_num_letters():
                 return word_length
             else:
                 print("Word length must be a number between 4 and 12")
-        except:
+        except ValueError:
             print("Word length must be a number between 4 and 12")
         print()
 
