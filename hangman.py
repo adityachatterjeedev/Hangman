@@ -8,7 +8,18 @@ import os
 my_path = os.path.abspath(os.path.dirname(__file__))
 path = os.path.join(my_path, "words.txt")
 
+#---------------------------------------------------------------------------------------------------------------------------------
+#---------------------------------------------HELPER FUNCTIONS TO PRINT IN COLOR--------------------------------------------------
+def printRed(s): print("\033[91m {}\033[00m" .format(s)) 
+def printGreen(s): print("\033[92m {}\033[00m" .format(s)) 
+def printPurple(s): print("\033[94m {}\033[00m" .format(s)) 
+def printCyan(s): print("\033[96m {}\033[00m" .format(s)) 
+#------------------------------------------END HELPER FUNCTIONS TO PRINT IN COLOR------------------------------------------------
+
 def get_word(word_length):
+    """
+    Get a word from the list of words provided.
+    """
     returned_word = None
     with open(path) as w:
         while (returned_word is None):
@@ -76,6 +87,10 @@ def readable_letters(list_of_letters):
     """
     A function to handle converting the list of remaining letters to a more readable form.
     """
+    # string = ''
+    # for i in range(len(list_of_letters) - 1):
+    #     string += (list_of_letters[i] + ',')
+    # string += list_of_letters[len(list_of_letters) - 1]
     string = ','.join(list_of_letters)
     return string
 
@@ -99,9 +114,9 @@ def play_game(word_length, letter_list, num_chances):
         given_letter = str(input("Enter a letter: "))
         if not(given_letter in letters):
             if not(given_letter in already_input):
-                print("Invalid input. You must input a letter from the English Alphabet.")
+                printPurple("Invalid input. You must input a letter from the English Alphabet.")
             else:
-                print("You've already input " + repr(given_letter) + ". Input a letter you haven't already used.")
+                printCyan("You've already input " + repr(given_letter) + ". Input a letter you haven't already used.")
             continue
         else:
             letters.remove(given_letter)
@@ -110,9 +125,9 @@ def play_game(word_length, letter_list, num_chances):
                 for i in range(len(letter_list)):
                     if letter_list[i] == given_letter:
                         hidden_list[i] = given_letter
-                print("Correct. Well done.")
+                printGreen("Correct. Well done.")
             else:
-                print(repr(given_letter) + " isn't in the word.")
+                printRed(repr(given_letter) + " isn't in the word.")
                 chances -= 1
     else:
         return False
