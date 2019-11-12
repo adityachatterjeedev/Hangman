@@ -13,7 +13,7 @@ def new_game():
     """
     An instance of a game. Keeps playing the game until the player decides to stop.
     """
-    start_string = 'New Game'.center(60, '*')
+    start_string = ' New Game '.center(60, '*')
     print(start_string)
     print("Welcome to a new game of Hangman.")
     word_length = get_num_letters()
