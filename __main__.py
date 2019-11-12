@@ -21,7 +21,7 @@ def new_game():
     word = get_word(word_length)
     letter_list = convert_to_list(word)
     if play_game(word_length, letter_list, num_chances):
-        print("Well done. You've won this round.")
+        print("Well done! You've won this round!")
     else:
         print("The word was: " + word)
         print("Hard luck. I'm sure you'll do better next time.")
